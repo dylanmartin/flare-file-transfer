@@ -53,20 +53,32 @@ def file_to_bytes(file_path: str) -> bytes:
 
 def do_task_get_local_image(fl_ctx: FLContext) -> Shareable:
     """
-    Loads a local image file and packages it into a Shareable object.
+    Loads the first available BMP image file in the specified directory and packages it into a Shareable object.
 
     :param fl_ctx: The federated learning context.
     :return: A Shareable containing the image data.
     """
     data_directory_path = get_data_directory_path(fl_ctx)
-    my_image_path = os.path.join(data_directory_path, "my_image.bmp")
 
-    my_image_bytes = file_to_bytes(my_image_path)
+    # Find the first BMP file in the directory
+    bmp_image_path = None
+    for filename in os.listdir(data_directory_path):
+        if filename.lower().endswith(".bmp"):
+            bmp_image_path = os.path.join(data_directory_path, filename)
+            break  # Stop after finding the first one
 
+    if bmp_image_path is None:
+        logging.error(f"No BMP image found in directory: {data_directory_path}")
+        return Shareable()  # Return empty Shareable if no BMP found
+
+    # Read image bytes
+    my_image_bytes = file_to_bytes(bmp_image_path)
+
+    # Package into Shareable
     shareable = Shareable()
     shareable["image"] = my_image_bytes
 
-    logging.info(f"Packaged local image into Shareable: {my_image_path}")
+    logging.info(f"Packaged local image into Shareable: {bmp_image_path}")
     return shareable
 
 
