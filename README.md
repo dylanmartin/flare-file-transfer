@@ -55,23 +55,6 @@ If you want to add more images beyond the existing ones, use the `batch_resize` 
 
 ---
 
-## **Project Structure**
-```
-.
-├── app/                  # NVFLARE application directory
-│   ├── code/             # Application logic
-│   │   ├── aggregator/   # Aggregation logic (image processing)
-│   │   ├── controller/   # FL control logic
-│   │   ├── image_utils.py  # Image processing utilities
-│   ├── config/           # Configuration files for NVFLARE
-├── example_results/      # Example input/output images
-├── Dockerfile-dev        # Dockerfile for development environment
-├── dockerRun.sh          # Script to run the NVFLARE container
-└── README.md             # This file
-```
-
----
-
 ## **Notes**
 - This example is designed for **grayscale BMP images**.
 - Ensure that images are correctly formatted before running federation.
