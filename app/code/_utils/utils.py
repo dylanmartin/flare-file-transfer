@@ -19,7 +19,6 @@ def find_repo_root_path() -> str:
 
     return path
 
-
 def get_data_directory_path(fl_ctx: FLContext) -> str:
     """Determine and return the data directory path based on the available paths."""
     site_name = fl_ctx.get_prop(FLContextKey.CLIENT_NAME)
