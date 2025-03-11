@@ -17,10 +17,10 @@ This application:
 
 ## **Example Results**
 - **Input images from clients:**
-  - ![Image 1](./example_results/image1.bmp)
-  - ![Image 2](./example_results/image2.bmp)
+  - ![Image 1](./docs/cat.bmp)
+  - ![Image 2](./docs/heli.bmp)
 - **Resulting aggregated image:**
-  - ![Aggregated Image](./example_results/resulting_image.bmp)
+  - ![Aggregated Image](./docs/helicat.bmp)
 
 ---
 
